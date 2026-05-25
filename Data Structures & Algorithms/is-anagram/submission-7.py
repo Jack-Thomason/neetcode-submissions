@@ -1,12 +1,9 @@
 class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
-        
-        count = [0] * 26
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        seen = list()
 
-        for i in range(len(s)):
-            count[ord(s[i]) - ord('a')] += 1
-            count[ord(t[i]) - ord('a')] -= 1
-
-        return all(c == 0 for c in count)
+        for num in nums:
+            if num in seen:
+                return True
+            seen.append(num)
+        return False
